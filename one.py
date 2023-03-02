@@ -7,7 +7,7 @@ import os
 # Set the umask value to 0
 # to enable write permissions for 
 # group and others
-os.umask(0)
+os.umask(0) 
 
 
 # get path of current file
@@ -73,7 +73,7 @@ plt.plot(xi, np.sin(xi), 'r')
 plt.title('Interpolation using RBF - multiquadrics')
 plt.show()
 
-plt.savefig(file_path+'/data/interpolations.png')
+# plt.savefig(file_path+'/data/interpolations.png')
 
 
 # Print content of data folder to inspect 
