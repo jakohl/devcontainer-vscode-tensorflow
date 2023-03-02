@@ -1,0 +1,65 @@
+
+#FROM mcr.microsoft.com/devcontainers/base:ubuntu
+# FROM mcr.microsoft.com/devcontainers/python:0-3.11
+FROM mcr.microsoft.com/vscode/devcontainers/anaconda:0.202.8-3
+
+
+# Copy environment.yml (if found) to a temp location so we can update the environment.
+COPY environment.yml /tmp/conda-tmp/
+RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bin/conda env update -n base -f /tmp/conda-tmp/environment.yml; fi \
+    && rm -rf /tmp/conda-tmp
+
+# Install the xz-utils package
+# RUN apt-get update && apt-get install -y xz-utils
+
+# RUN conda --version
+# RUN python --version
+
+# RUN conda --help
+
+# RUN conda create -n python3.11 python=3.11
+# RUN conda activate python3.11
+# RUN conda install -y python=3.11
+# RUN conda install -y -c conda-forge python=3.11
+
+# RUN conda install -y -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
+
+# RUN conda uninstall python
+# RUN conda install python=3.11
+# RUN conda install -y -c conda-forge python=3.11
+
+# RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+# ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+ENV LD_LIBRARY_PATH="/opt/conda/lib/:$LD_LIBRARY_PATH"
+
+# ENV LANG=C.UTF-8 \
+#     LC_ALL=C.UTF-8 \
+#     PATH=/opt/conda/bin:$PATH
+
+ENV PIP_ROOT_USER_ACTION=ignore
+
+RUN pip install --upgrade pip 
+
+# RUN python3 -m pip install tensorflow
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+
+# WORKDIR /app
+
+
+# COPY . .
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+# Requires the latest pip
+
+
+# Current stable release for CPU and GPU
+# pip install tensorflow
+
+
+# RUN pip3 install --user -r requirements.txt
+
+
+
