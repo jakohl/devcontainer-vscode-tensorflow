@@ -1,6 +1,6 @@
-# %%
+# hover over "# %%" and click "Run cell" to run the cell (view the plot, print a variable, ...)
 
-# hover over "# %%" and click "Run cell" to view the plot
+# %%
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -17,3 +17,9 @@ ax.grid()
 
 # fig.savefig("test.png")
 plt.show()
+
+# %%
+a=1
+b=a-3
+b
+

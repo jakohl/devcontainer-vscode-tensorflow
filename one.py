@@ -73,7 +73,7 @@ plt.plot(xi, np.sin(xi), 'r')
 plt.title('Interpolation using RBF - multiquadrics')
 plt.show()
 
-# plt.savefig(file_path+'/data/interpolations.png')
+plt.savefig(file_path+'/data/interpolations.png')
 
 
 # Print content of data folder to inspect 
