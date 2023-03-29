@@ -1,4 +1,6 @@
-# hover over "# %%" and click "Run cell" to run the cell (view the plot, print a variable, ...)
+# demo script to test notebook functionalities
+# hover over "# %%" and click "Run cell" to run a cell
+# (view the plot, print a variable, ...)
 
 # %%
 import matplotlib.pyplot as plt
@@ -23,3 +25,5 @@ a=1
 b=a-3
 b
 
+
+# %%

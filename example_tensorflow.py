@@ -1,3 +1,5 @@
+# demo script to test tensorflow (and gpus)
+
 import tensorflow as tf
 
 print("TensorFlow version:", tf.__version__)
