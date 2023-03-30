@@ -8,7 +8,7 @@ To use this template you should:
 
 - install docker and make sure it is running with your default user permissions
 - install Visual Studio Code
-- install the Visual Studio Code extension "Dev Containers"
+- install the Visual Studio Code extension Dev Containers
 - in Visual Studio Code File > Open Folder > Folder_Of_This_Repository
 
 Once everything is set up you can press F1 and type the command "Dev Containers: Rebuild and Reopen in Container". Press Enter. This will generate the Container and Open the Folder in the Container. You can now open a terminal in Visual Studio Code (Terminal > NewTerminal) and run the e.g. "python example_tensorflow.py".
