@@ -1,7 +1,18 @@
 
 # FROM alpine:3.17.2
-FROM tensorflow/tensorflow:2.11.0-gpu
+# FROM tensorflow/tensorflow:2.11.0-gpu
+FROM tensorflow/tensorflow:2.15.0-gpu
+# FROM tensorflow/tensorflow:2.15.0-gpu-jupyter
 # FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
+
+
+RUN apt update \
+    && apt-get -yq install git \
+    && apt-get autoremove -y \
+    && apt-get clean all
+
+# -jupyter tags include Jupyter and some TensorFlow tutorial notebooks.
+#  They start a Jupyter notebook server on boot. Mount a volume to /tf/notebooks to work on your own notebooks.
 
 # ARG USERNAME=vscode
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -51,9 +62,22 @@ FROM tensorflow/tensorflow:2.11.0-gpu
 #     CUDA_DIR=/opt/conda/lib \
 #     XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/conda/lib 
 
+ARG USERNAME=ubuntu
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN addgroup --gid $USER_GID $USERNAME \
+    && adduser --uid $USER_UID --gid $USER_GID --disabled-password --gecos "" $USERNAME
+    
+
+# USER = $USERNAME
+
 ENV PIP_ROOT_USER_ACTION=ignore
 COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip  \
-&& pip install -r requirements.txt
+    && pip install -r requirements.txt
+
+# RUN mkdir /mnt
 
 # # WORKDIR /app
+

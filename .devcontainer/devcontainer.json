@@ -11,12 +11,26 @@
 		"--gpus",
 		"all"
 	],
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter"
+            ]
+		}
+	},
 
-	"extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-		"ms-toolsai.jupyter"
-    ]
+	"postStartCommand": [
+        "./.devcontainer/copy_ssh_keys.sh"
+    ],
+
+	"mounts": [
+		"source=${localEnv:SSH_DIR},target=/mnt/.ssh,readonly,type=bind,consistency=cached"
+	],
+
+	"remoteUser": "ubuntu"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
