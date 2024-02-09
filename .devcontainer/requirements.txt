@@ -1,5 +1,4 @@
 ###### Requirements without Version Specifiers ######
-# tensorflow == 2.10.*
 scipy
 numpy
 matplotlib
